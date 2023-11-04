@@ -11,7 +11,8 @@ import { rootReducer } from "./root-reducer";
 const persistConfig = {
   key: "root",
   storage, //shortcut for stor variable as the key name (oklart om det ska vara fuuttar): storage: storage
-  blacklist: ["user"],
+  //blacklist: ["user"],
+  whitelist: ["cart"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
