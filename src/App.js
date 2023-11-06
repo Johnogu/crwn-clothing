@@ -11,6 +11,7 @@ import { Routes, Route } from "react-router-dom";
 import {
   onAuthStateChangedListener,
   createUserDocumentFromAuth,
+  getCurrentUser,
 } from "./utils/firebase/firebase.utils";
 
 import Home from "./routes/home/home.component";
@@ -24,15 +25,18 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChangedListener((user) => {
-      if (user) {
-        createUserDocumentFromAuth(user);
-      }
-      console.log(user);
-      dispatch(setCurrentUser(user));
-    });
+    getCurrentUser().then((user) => console.log(user));
 
-    return unsubscribe;
+    // Below not used in saga, instead the new function getCurrentUser in firebase utils
+    // const unsubscribe = onAuthStateChangedListener((user) => {
+    //   if (user) {
+    //     createUserDocumentFromAuth(user);
+    //   }
+    //   console.log(user);
+    //   dispatch(setCurrentUser(user));
+    // });
+
+    // return unsubscribe;
   }, []); // will work, but only run once anyways:  }, [dispatch]);
 
   return (
