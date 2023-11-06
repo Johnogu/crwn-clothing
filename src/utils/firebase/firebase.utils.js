@@ -109,7 +109,9 @@ export const createUserDocumentFromAuth = async (
     }
   }
 
-  return userDocRef;
+  //return userDocRef;
+  //return userSnapshot in Saga version
+  return userSnapshot;
 };
 
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
