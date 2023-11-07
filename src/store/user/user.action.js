@@ -17,4 +17,4 @@ export const signInSuccess = (user) =>
   createAction(USER_ACTION_TYPES.SIGN_IN_SUCCESS, user);
 
 export const signInFailed = (error) =>
-  createAction(USER_ACTION_TYPES.SIGN_IN_FAILED, error, error);
+  createAction(USER_ACTION_TYPES.SIGN_IN_FAILED, error);
